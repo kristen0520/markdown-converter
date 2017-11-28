@@ -8,6 +8,7 @@
 <body>
 	<div id="root">
 	</div>
+	<link rel="stylesheet" href="index.css">
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react.min.js"></script>
@@ -25,7 +26,7 @@ class Markup extends React.Component {
   constructor(props) {
     super(props);
     
-    this.state = { userInput: '', mark: ''};
+    this.state = { userInput: '', mark: '', defaultText:"write markdown here"};
     
     this.handleUserInput = this.handleUserInput.bind(this);
 }
@@ -39,44 +40,24 @@ class Markup extends React.Component {
 	render(){
 		return(
 		<div>
-			   <input type="text" onChange={this.handleUserInput} value={this.state.userInput}/>
+			   <textarea cols="60" rows="30" onChange={this.handleUserInput} value={this.state.userInput}>{this.state.defaultText}</textarea>
+      
+        <div className="hide">{this.state.mark = marked(this.state.userInput)}</div>
         
-        <h1 id="input">{this.state.userInput}</h1>
-        {this.state.mark = marked(this.state.userInput)}
-        <h2>{this.state.mark}</h2>
-        {marked('*Italic*, **bold**, and `monospace`')}
-        
-        <div dangerouslySetInnerHTML={{__html: this.state.mark}} />
+        <div className="output" dangerouslySetInnerHTML={{__html: this.state.mark}} />
 
 		</div>
 		)
 	}
 }
 
-class MarkedText extends React.Component {
-	state = { 
-		text:"text from the state object in markedtext",
-		input: document.getElementById("input")
-	}
 
-
-
-	render(){
-		return(
-		<div>
-			<h1>{this.state.text}</h1>
-			<h3>{this.state.input}</h3>
-		</div>
-	)
-	}	
-}
 
 class App extends React.Component {
 	render(){
 	return(
 		<div>
 			<Markup />
-			<MarkedText />
 		</div>
 	)
 }

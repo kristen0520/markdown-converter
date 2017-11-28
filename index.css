@@ -1,0 +1,22 @@
+.hide{
+	visibility: hidden;
+	 overflow: hidden;
+	 position:absolute;
+}
+
+textarea{
+	display: inline-block;
+	float: left;
+	margin: 30px;
+	 overflow: hidden;
+}
+
+.output{
+	display: inline-block;
+	float: left;
+	margin: 30px;
+	width: 450px;
+	height: 450px;
+	border: solid 1px black;
+	 overflow: hidden;
+}
