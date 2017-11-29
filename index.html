@@ -23,16 +23,15 @@
 
 class Markup extends React.Component {
 
-  constructor(props) {
-    super(props);
+state = { userInput: "**Write Markup On the Left**",
+     mark: '', 
+     defaultText:"write markdown here"
     
-    this.state = { userInput: '', mark: '', defaultText:"write markdown here"};
-    
-    this.handleUserInput = this.handleUserInput.bind(this);
 }
 
- handleUserInput(e) {
-    this.setState({userInput: e.target.value});
+ handleUserInput = (event) => {
+    this.setState({userInput: event.target.value});
+   // this.state.userInput= event.target.value
   }
 
  
@@ -40,7 +39,7 @@ class Markup extends React.Component {
 	render(){
 		return(
 		<div>
-			   <textarea cols="60" rows="30" onChange={this.handleUserInput} value={this.state.userInput}>{this.state.defaultText}</textarea>
+			   <textarea cols="60" rows="30" onChange={this.handleUserInput} value={this.state.userInput}>+</textarea>
       
         <div className="hide">{this.state.mark = marked(this.state.userInput)}</div>
         
