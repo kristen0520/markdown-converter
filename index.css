@@ -8,7 +8,7 @@ textarea{
 	display: inline-block;
 	float: left;
 	margin: 30px;
-	 overflow: hidden;
+	 overflow-y: scroll;
 }
 
 .output{
@@ -17,6 +17,5 @@ textarea{
 	margin: 30px;
 	width: 450px;
 	height: 450px;
-	border: solid 1px black;
-	 overflow: hidden;
+	
 }
